@@ -1,55 +1,23 @@
-const Rss = reqiure('rss')
-const pathFn = reqiure('path')
+const pathFn = require('path')
+const Rss = require('./rss')
 
-class Rsser extends Rss {
-  constructor(config) {
-    const {
-      title,
-      description,
-      url,
-      path,
-    } = config
+acyort.extend.register('after_build', (data) => {
+  const {
+    config,
+    fs,
+    logger,
+  } = acyort
 
-    super({
-      title,
-      description,
-      feed_url: pathFn.join(url, path),
-      site_url: url,
-      cdata: true,
-      pubDate: new Date().toISOString(),
-    })
-
-    this.url = config.url
-    this.limit = config.limit
+  if (!config.rss) {
+    return false
   }
 
-  render(posts) {
-    let data = posts
+  const { posts } = data
+  const { limit, path } = config.rss
+  const { base, public_dir } = config
+  const rss = new Rss({ ...config, limit })
 
-    if (this.limit) {
-      data = data.filter((p, i) => i < this.limit)
-    }
+  fs.outputFileSync(pathFn.join(base, public_dir, path), rss.render(posts))
 
-    data.forEach((post) => {
-      const {
-        author: { name },
-        title,
-        updated,
-        html,
-        path,
-      } = post
-
-      this.item({
-        title,
-        url: pathFn.join(this.url, path),
-        author: name,
-        date: updated,
-        description: html,
-      })
-    })
-
-    return this.xml()
-  }
-}
-
-module.exports = Rsser
+  return logger.success(path)
+})
