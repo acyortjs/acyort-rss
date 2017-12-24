@@ -25,13 +25,15 @@
   },
   "homepage": "https://github.com/acyortjs/acyort-rss#readme",
   "devDependencies": {
+    "acyort": "^2.0.2",
     "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "intelli-espower-loader": "^1.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
-    "power-assert": "^1.4.4"
+    "power-assert": "^1.4.4",
+    "xml-js": "^1.6.1"
   },
   "dependencies": {
     "rss": "^1.2.2"
