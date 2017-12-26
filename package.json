@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:lint && npm run test:cover",
-    "test:unit": "mocha --reporter dot --require intelli-espower-loader ./test",
+    "test:unit": "mocha --reporter dot --require intelli-espower-loader ./test/index.js",
     "test:lint": "eslint .",
-    "test:cover": "istanbul cover --print both _mocha ./test"
+    "test:cover": "istanbul cover --print both _mocha ./test/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/acyortjs/acyort-rss#readme",
   "devDependencies": {
-    "acyort": "^2.0.2",
+    "acyort": "^2.0.3",
+    "acyort-config": "^0.1.3",
     "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
