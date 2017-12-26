@@ -1,6 +1,6 @@
 {
   "name": "acyort-rss",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Rss for AcyOrt",
   "main": "index.js",
   "scripts": {
