@@ -8,6 +8,7 @@
     "acyort": true
   },
   "rules": {
-    "semi": [2, "never"]
+    "semi": [2, "never"],
+    "no-param-reassign": ["error", { "props": false }]
   }
 }

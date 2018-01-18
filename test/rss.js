@@ -1,3 +1,1 @@
-const generator = require('../lib/generator')
-
-acyort.extend.register('after_build', generator.bind(acyort))
+acyort.extend.register('after_build', require('../lib/generator').bind(acyort))

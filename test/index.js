@@ -9,7 +9,6 @@ const config = defaults
 
 config.base = __dirname
 config.cache =  true
-config.url = 'http://acyort.com'
 config.scripts = ['rss.js']
 config.scripts_dir = '/'
 config.rss = {
