@@ -18,7 +18,7 @@ config.rss = {
 
 describe('rss', () => {
   it('width limit', async function () {
-    this.timeout = 10000
+    this.timeout(10000)
 
     await new Acyort(config).build()
     assert(fs.existsSync(path.join(config.base, 'rss.xml')) === true)
@@ -28,7 +28,7 @@ describe('rss', () => {
   })
 
   it('no limit', async function () {
-    this.timeout = 10000
+    this.timeout(10000)
 
     config.rss.limit = 0
     await new Acyort(config).build()
@@ -38,7 +38,7 @@ describe('rss', () => {
   })
 
   it('no rss', async function () {
-    this.timeout = 10000
+    this.timeout(10000)
 
     fs.unlinkSync(path.join(config.base, 'rss.xml'))
     config.rss = null
