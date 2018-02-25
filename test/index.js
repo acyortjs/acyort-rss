@@ -37,6 +37,16 @@ describe('rss', () => {
     assert(json.rss.channel.item.length === 9)
   })
 
+  it('default', async function () {
+    this.timeout(10000)
+
+    config.rss = true
+    await new Acyort(config).build()
+    const xml = fs.readFileSync(path.join(config.base, 'rss.xml'))
+    const json = JSON.parse(convert.xml2json(xml, { compact: true, spaces: 2 }))
+    assert(json.rss.channel.item.length === 9)
+  })
+
   it('no rss', async function () {
     this.timeout(10000)
 
